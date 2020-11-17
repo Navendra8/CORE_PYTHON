@@ -30,38 +30,33 @@ class Rent(Car_Rental):
         print(f"YOUR RENT IS {rent} plus taxes as follows:   ")
         time.sleep(1)
         rent1=rent+(rent*20.5/100)
-        print(f"HELLO {self.name} YOUR TOTAL RENT IS {rent1} FOR {no_days} days, We'll send you copy of invoice on {self.emailaddress}")
-
+        print(f"YOUR TOTAL RENT IS {rent1} FOR {no_days} days")
         
     def rent_sedan(self,no_days):
         rent=100*no_days
         print(f"YOUR  RENT IS {rent} plus taxes as follows:   ")
         time.sleep(1)
         rent1=rent+(rent*20.5/100)
-        print(f"HELLO {self.name} YOUR TOTAL RENT IS {rent1} FOR {no_days} days, We'll send you copy of invoice on {self.emailaddress}")
-
+        print(f"YOUR TOTAL RENT IS {rent1} FOR {no_days} days")     
             
     def rent_suv(self,no_days):
         rent=1000*no_days
         print(f"YOUR RENT IS {rent} plus taxes as follows:   ")
         time.sleep(1)
         rent1=rent+(rent*20.5/100)
-        print(f"HELLO {self.name} YOUR TOTAL RENT IS {rent1} FOR {no_days} days, We'll send you copy of invoice on {self.emailaddress}")
-    
+        print(f"YOUR TOTAL RENT IS {rent1} FOR {no_days} days")
         
 class customer(Rent,Car_Rental):
-    def __init__(self,days=None,name=None,address=None,emailaddress=None):
+    def __init__(self,days=None,):
         self.days=days
-        self.name=input("Enter your Name :")
-        self.address=input("enter your address : ")
-        self.emailaddress=input("Enter your email address :")
-        for i in self.emailaddress:
-                if i =="@":
-                    print("Correct email address ")
-                    break
-                else:
-                    print("Enter a valid email addresses")
-                    
+        
+        
+    def personal_infromation(Name,address,jobtitle):
+        Name=input("Enter your Name :")
+        address=input("enter your address: ")
+        jobtitle=input("Enter your jobtitle")
+        
+        
     def rental(self):
         print(f"Enter the type of car \n1.-->sedan\n2.-->suv\n3.-->hatchback :")
         choice=int(input("Enter your choice :"))
@@ -69,16 +64,14 @@ class customer(Rent,Car_Rental):
             day=int(input("no of days"))
             Rent.rent_sedan(self,day)
             
-        elif choice == 2:
+        if choice == 2:
             day=int(input("no of days"))
             Rent.rent_suv(self,day)
             
-        elif choice==3 :
+        if choice==3 :
             day=int(input("no of days"))
             Rent.rent_hatchback(self,day)
             
         else:
             print("Please enter a valid type of car ")
-    
-
 
